@@ -19,7 +19,7 @@ find_package(catkin REQUIRED COMPONENTS
 	roslib
 	image_transport
 )
-
+find_package(OpenCV REQUIRED)
 ###################################
 ## catkin specific configuration ##
 ###################################
@@ -45,6 +45,7 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
   ${OPENPOSE_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
 )
 
 add_definitions(-DUSE_CAFFE)
@@ -86,7 +87,8 @@ target_link_libraries(openpose_ros_node_firephinx ${catkin_LIBRARIES}
 										${CAFFE_LIBRARY}
 										${CUDA_LIBRARY} 										 
 										${GFLAGS_LIBRARY} 
-										${GLOG_LIBRARY})						
+										${GLOG_LIBRARY}
+										${OpenCV_LIBS})						
 add_dependencies(openpose_ros_node_firephinx ${catkin_EXPORTED_TARGETS})
 
 

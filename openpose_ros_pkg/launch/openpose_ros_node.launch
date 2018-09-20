@@ -1,0 +1,11 @@
+<launch>
+  <arg name="input_image_topic" default="camRing_F/image_raw"/>
+
+    <node pkg="openpose_ros_pkg" type="openpose_ros_node" name="openpose_ros_node" output="screen"/>
+
+    <!-- openpose ros code -->
+    <node pkg="openpose_ros_pkg" type="openpose_ros_node_firephinx" name="openpose_ros_node_firephinx" output="screen">
+        <remap from="/usb_cam/image_raw"                 to="$(arg input_image_topic)" />
+    </node>
+
+</launch>

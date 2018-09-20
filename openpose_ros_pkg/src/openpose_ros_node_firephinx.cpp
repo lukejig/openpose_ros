@@ -247,23 +247,23 @@ int openPoseROSTutorial()
           ROS_ERROR("Failed to call service detect_poses");
         }
     
-            poseExtractorCaffe.forwardPass(netInputArray, {inputImage.cols, inputImage.rows}, scaleRatios);
-            std::cout << "Forward Pass Success" << std::endl;
+            // poseExtractorCaffe.forwardPass(netInputArray, {inputImage.cols, inputImage.rows}, scaleRatios);
+            // std::cout << "Forward Pass Success" << std::endl;
 
-            const auto poseKeypoints = poseExtractorCaffe.getPoseKeypoints();
-            std::cout << "    Got Keypoints" << std::endl;
-            // Step 4 - Render poseKeypoints
-            poseRenderer.renderPose(outputArray, poseKeypoints);
-            std::cout << "    Rendering Pose" << std::endl;            
-            // Step 5 - OpenPose output format to cv::Mat
-            auto outputImage = opOutputToCvMat.formatToCvMat(outputArray);
-            std::cout << "    Outputing Image" << std::endl;
+            // const auto poseKeypoints = poseExtractorCaffe.getPoseKeypoints();
+            // std::cout << "    Got Keypoints" << std::endl;
+            // // Step 4 - Render poseKeypoints
+            // poseRenderer.renderPose(outputArray, poseKeypoints);
+            // std::cout << "    Rendering Pose" << std::endl;            
+            // // Step 5 - OpenPose output format to cv::Mat
+            // auto outputImage = opOutputToCvMat.formatToCvMat(outputArray);
+            // std::cout << "    Outputing Image" << std::endl;
 
-            // ------------------------- SHOWING RESULT AND CLOSING -------------------------
-            // Step 1 - Show results
-            cv::imshow("OpenPose ROS", outputImage);
-            cv::waitKey(1);
-            frame_count++;
+            // // ------------------------- SHOWING RESULT AND CLOSING -------------------------
+            // // Step 1 - Show results
+            // cv::imshow("OpenPose ROS", outputImage);
+            // cv::waitKey(1);
+            // frame_count++;
         }
         ros::spinOnce();
     }
